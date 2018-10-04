@@ -11,7 +11,7 @@ OUTPUT_FILEPATH = './json_to_csv/'
 
 DATE_FORMAT = '%d-%m-%Y'
 to_date = datetime.today().strftime(DATE_FORMAT)
-from_date = datetime.today() + timedelta(days=-1)
+from_date = datetime.today() + timedelta(days=-2)
 from_date = from_date.strftime(DATE_FORMAT)
 OUTPUT_FILEPATH = ''.join([OUTPUT_FILEPATH, from_date, '_to_', to_date, '.csv'])
 
@@ -31,7 +31,8 @@ class JsonGetter:
                  "from": from_date,
                  "to": to_date,
                  }
-        params = params.update(CONFIG['PROD'])
+        params.update(CONFIG['PROD'])
+
         return params
 
     def get_json(self):
@@ -76,6 +77,7 @@ class JsonToCSV:
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writeheader()
             if 'message' in self.data.keys():
+                print("found items")
                 for item in self.data['message']:
                     item = self.flatten(item)
                     writer.writerow(item)

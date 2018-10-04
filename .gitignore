@@ -1,3 +1,4 @@
 .idea
 json_to_csv/config.json
 json_to_csv/example.json
+json_to_csv/*csv
