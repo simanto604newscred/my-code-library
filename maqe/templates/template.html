@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" media="screen">
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-    <link href="static/css/style.css" rel="stylesheet" media="screen">
+    <link href="{{ url_for('static',filename='css/style.css') }}" rel="stylesheet" media="screen">
   </head>
   <body>
     <div class="container">
@@ -16,55 +16,33 @@
         </div>
 
          <ul class="list-container">
+         {% for post in posts %}
               <li>
                   <div class="row">
                       <div class="col-xs-9 post-col">
                           <div class="row">
                               <div class="col-xs-3 post-img-col">
-                                  <img src="http://lorempixel.com/320/240/?random1" alt="image" class="img-responsive" />
+                                  <img src={{ post.image_url }} alt="image" class="img-responsive" />
                               </div>
                               <div class="col-xs-9">
                                   <div class="post-desc">
-                                      <h2>Let's see this awesome post!</h2>
-                                      <p>I'm really glad to see this forums popular!</p>
+                                      <h2>{{ post.title }}</h2>
+                                      <p>{{ post.body }}</p>
                                       <p class="date"><span class="far fa-clock"></span>1 week ago</p>
                                   </div>
                               </div>
                           </div>
                       </div>
                       <div class="col-xs-3 author-col text-center">
-                          <img src="https://api.adorable.io/avatars/250/jason-bourne" alt="image" class="img-responsive" />
-                          <p class="author-name">Jason Bourne</p>
-                          <p class="author-type">Registered User</p>
-                          <p class="author-location"><span class="fas fa-map-marker-alt"></span>New York</p>
+                          <img src= {{post.author_details.avatar_url}} alt="image" class="img-responsive" />
+                          <p class="author-name">{{post.author_details.name}}</p>
+                          <p class="author-type">{{post.author_details.role}}</p>
+                          <p class="author-location"><span class="fas fa-map-marker-alt"></span>{{post.author_details.place}}</p>
                       </div>
                   </div>
               </li>
+         {% endfor %}
 
-              <li>
-                  <div class="row">
-                      <div class="col-xs-9 post-col">
-                          <div class="row">
-                              <div class="col-xs-3 post-img-col">
-                                  <img src="http://lorempixel.com/320/240/?random1" alt="image" class="img-responsive" />
-                              </div>
-                              <div class="col-xs-9">
-                                  <div class="post-desc">
-                                      <h2>Let's see this awesome post!</h2>
-                                      <p>I'm really glad to see this forums popular!</p>
-                                      <p class="date"><span class="far fa-clock"></span> 1 week ago</p>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="col-xs-3 author-col text-center">
-                          <img src="https://api.adorable.io/avatars/250/jason-bourne" alt="image" class="img-responsive" />
-                          <p class="author-name">Jason Bourne</p>
-                          <p class="author-type">Registered User</p>
-                          <p class="author-location"><span class="fas fa-map-marker-alt"></span>New York</p>
-                      </div>
-                  </div>
-              </li>
           </ul>
 
         <div class="page navigation text-center">

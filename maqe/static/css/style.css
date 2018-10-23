@@ -1,0 +1,98 @@
+body {
+    color: #333;
+    font-size: 14px;
+}
+
+.header-title h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.header-title h4 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.header-title h5 {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+.list-container li {
+    margin: 10px 0 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px #c5bdbd;
+}
+
+.list-container li:nth-child(even) {
+    background-color: #e8e8e8;
+}
+
+.post-col {
+
+}
+
+.post-desc h2 {
+    font-size: 22px;
+}
+.post-desc p {
+    font-size: 16px;
+}
+.post-col img {
+    max-width: 100%;
+}
+.post-col .date {
+    color: #afafaf;
+    font-style: italic;
+}
+
+.post-col .date span {
+    margin-right: 5px;
+}
+
+.author-col {
+    border-left: 1px solid #ccc;
+}
+.author-col img {
+    max-width: 100px;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+.author-col .author-name {
+    font-size: 18px;
+    color: #d63906;
+    margin-top: 20px;
+}
+.author-col .author-type {
+    font-size: 18px;
+}
+.author-col .author-location span {
+    margin-right: 10px;
+}
+
+.pagination>.active>a {
+    background-color: #d41818;
+    border-radius: 50%;
+}
+.pagination>li>a {
+    border: 0;
+    color: #333;
+    margin: 0 3px;
+    border-radius: 50%;
+}
+.pagination>li:first-child a {
+    margin-right: 20px;
+    background-color: #fff;
+}
+.pagination>li:last-child a {
+    margin-left: 20px;
+    background-color: #fff;
+}

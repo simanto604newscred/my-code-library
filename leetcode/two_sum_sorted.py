@@ -13,11 +13,25 @@ class Solution:
 
             try:
 
-                return look_for[target-value], current_index
+                return look_for[value], current_index
 
             except KeyError:
 
                 look_for.setdefault(target-value, current_index)
+
+    def twoSum_1(self, numbers, target):
+        length = len(numbers)
+        i = 0
+        j = length -1
+        while i < j:
+            summary = numbers[i] + numbers[j]
+            if summary == target:
+                return [i + 1, j + 1]
+            if summary < target:
+                i += 1
+            else:
+                j -= 1
+        return []
 
 if __name__ == '__main__':
 
