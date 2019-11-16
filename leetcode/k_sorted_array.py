@@ -1,7 +1,24 @@
 from heapq import heapify, heappop, heappush
 
+def sort_k_messed_array1(arr, k):
+  '''
+  Using insertion sort leading to O(n*k)
+  '''
+  for i in range(1, len(arr)):
+    j=i-1
+    key = arr[i]
+    while j>=0 and key < arr[j]:
+      arr[j+1] = arr[j]
+      j-=1
+    arr[j+1] = key
+  return arr
+
 
 def sort_k_messed_array(arr, k):
+  '''
+  Using fixed k+1 size heap leading to O(n * log(k))
+  maintaining heap property for i item requires log(k) time and we have do this for n items 
+  '''
   n = len(arr)
   h = arr[:k+1]
   heapify(h)
